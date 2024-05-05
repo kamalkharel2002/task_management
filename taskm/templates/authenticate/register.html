@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body style=" background: url('../static/images/background1.webp'); background-size: cover;
+background-position: center;">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header" style="background-color: rgb(3, 112, 213);"><b>Registration</b></div>
+                    <div class="card-body">
+                        <form action="{% url 'register_user'%}" method="POST">
+                            {% csrf_token %} {% if form.errors %}
+                            <div class="alert alert-info" role="alert">
+                                <p>There was an error! Try Again</p>
+                            </div>
+                            {% endif %} {{form.as_p}}
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <a href="{% url  'login' %}" type="submit" class="btn btn-primary btn-block">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
